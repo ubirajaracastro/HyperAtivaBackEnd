@@ -14,6 +14,7 @@ No teste efetuado foi levado em consideração na operação de importação do 
 
 Por questão de simplificação do teste o mesmo foi efetuado no mesmo proj, camada do Ef, domínio e models e crosscuttin.  No cenário real de uma aplicação comercial, faríamos a separação de responsabilidade, domínio coeso, data, camadas comuns a aplicação até um cenário arquitetural mais voltado ao negócio como um DDD por exemplo.
 
+Faria-se também a injeção e o seu escopo do DBContex do EF Core e demais contratos implementados na operação do negócio.
 
 
 Obrigado.
