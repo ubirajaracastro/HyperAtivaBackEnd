@@ -1,0 +1,103 @@
+﻿@model MeuRH360.Web.Models.DadosViewModel
+
+
+@{
+    ViewData["Title"] = "Cadastro de Pessoa";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Meu RH360</h1>
+</div>
+
+<br />
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<div class="text-center">
+    <h4 class="py-sm-2">Crie uma conta profissional</h4>
+    <h6 class="py-sm-2">Preencha seus dados para ter acesso</h6>
+
+</div>
+
+
+
+@using (Html.BeginForm("Passo2", "Home", FormMethod.Post, new { id = "formPessoa" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Pessoa.Nome, new { @for = "txtNome" })
+        @Html.TextBoxFor(model => model.Pessoa.Nome, new { @class = "form-control", @placeholder = "Nome:", @id = "txtNome" })
+        @Html.ValidationMessageFor(model => model.Pessoa.Nome)
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Pessoa.Email, new { @for = "txtEmail" })
+        @Html.TextBoxFor(model => model.Pessoa.Email, new { @class = "form-control", @placeholder = "Email:", @id = "txtEmail" })
+        @Html.ValidationMessageFor(model => model.Pessoa.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Pessoa.Senha, new { @for = "txtSenha" })
+        @Html.PasswordFor(model => model.Pessoa.Senha, new { @class = "form-control", @placeholder = "Senha:", @id = "txtSenha" })
+        @Html.ValidationMessageFor(model => model.Pessoa.Senha)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Pessoa.Confirmacao, new { @for = "txtSenha" })
+        @Html.PasswordFor(model => model.Pessoa.Confirmacao, new { @class = "form-control", @id = "txtConfirmacaoSenha" })
+        @Html.ValidationMessageFor(model => model.Pessoa.Confirmacao)
+    </div>
+
+
+
+    <div class="form-check">
+        @Html.CheckBox("chkAceito", new { @class = "form-check-input", @id = "chkAceito" })
+        @Html.LabelFor(model => model.Pessoa.AceitoContrato, new { @class = "form-check-label", @for = "txtSenha" })
+
+        <label class="form-check-label" for="flexCheckDefault">
+            Eu aceito os <a href="https://docs.microsoft.com/aspnet/core">Termos de uso & Privacidade e o </a><a href="https://docs.microsoft.com/aspnet/core">Contrato de serviço</a>
+        </label>
+        
+    </div>
+    <br />
+
+    <div>
+        <center>
+            <button type="button" id="btCadastrar" class="btn btn-primary btn-lg btn-block">Criar Conta</button>
+        </center>
+
+    </div>
+
+
+
+
+
+    @section Scripts {
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.unobtrusive.min.js"></script>
+    }
+
+    
+
+}
+
+<script>
+    $(document).ready(function () {              
+
+             $("#btCadastrar").click(function () {                                 
+
+                 if ($('#chkAceito').is(':checked'))
+                     $("#formPessoa").submit();
+                 else
+                     alert('Você deve aceitar o contrato de privacidade e de termos de serviço.');
+
+        });
+
+    });
+
+</script>
