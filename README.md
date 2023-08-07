@@ -12,6 +12,9 @@ Adicionada a documentação do Swagger para descrição das operações dos cont
 
 No teste efetuado foi levado em consideração na operação de importação do arquivo de cartoes que o front end faça o upload do arquivo informado pelo cliente e em seguida faça a requisição Post para a api (Controller Cartao).
 
+Por questão de simplificação do teste o mesmo foi efetuado no mesmo proj, camada do Ef, domínio e models e crosscuttin.  No cenário real de uma aplicação comercial, faríamos a separação de responsabilidade, domínio coeso, data, camadas comuns a aplicação até um cenário arquitetural mais voltado ao negócio como um DDD por exemplo.
+
+
 
 Obrigado.
 
