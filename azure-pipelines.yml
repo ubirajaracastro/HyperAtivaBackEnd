@@ -9,8 +9,8 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pool:MyAgent
+  
 
 variables:
   buildConfiguration: 'Release'
